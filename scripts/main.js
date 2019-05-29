@@ -1,4 +1,11 @@
-var myHeading = document.querySelector('h1');
+var myHeading = document.querySelector('h2');
+
+function setUserName() {
+  var myName = prompt('Как зовут тебя?');
+  localStorage.setItem('name', myName);
+  myHeading.innerHTML  = 'Меня зовут ' + storedName;
+}
+
 var myButton = document.querySelector('button');
 clickWindow = function() {
     alert ('ЭТО АБЗАЦ');
@@ -15,16 +22,12 @@ myImage.onclick = function() {
       myImage.setAttribute ('src','images/sd.png');
     }
 }
-function setUserName() {
-  var myName = prompt('Please enter your name.');
-  localStorage.setItem('name', myName);
-  myHeading.innerHTML  = 'Mozilla is cool, ' + myName;
-}
+
 if(!localStorage.getItem('name')) {
   setUserName();
 } else {
   var storedName = localStorage.getItem('name');
-  myHeading.innerHTML  = 'Mozilla is cool, ' + storedName;
+  myHeading.innerHTML  = 'Меня зовут ' + storedName;
 }
 myButton.onclick = function() {
   setUserName();
